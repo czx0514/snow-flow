@@ -32,7 +32,7 @@ function snowFlow(snowNum) {
         offsetX = 0,
         offsetY = 0;
 
-    for(var i = 0; i < parseInt(snowNum || 18); i += 1){
+    for(var i = 0; i < parseInt(snow.num || 18); i += 1){
         snowCss = "";
         snowAttr["opacity"][i] = 0.5 + 0.5*Math.random();
         snowAttr["fontSize"][i] = 20 + 20*Math.random();
@@ -43,7 +43,7 @@ function snowFlow(snowNum) {
         snowCss += "font-size:" + snowAttr["fontSize"][i] + "px;";
         snowCss += "-webkit-transform:" + "translate3d(" + snowAttr["x"][i] + "px," + snowAttr["y"][i] + "px, 0)" + ";";
         snowCss += "transform:" + "translate3d(" + snowAttr["x"][i] + "px," + snowAttr["y"][i] + "px, 0)" + ";";
-        snowBoxHtml += "<b class='snow' style='"+ snowCss +"'>❄</b>";
+        snowBoxHtml += "<b class='snow' style='"+ snowCss +"'>" + snow.text + "</b>";
     }
 
     snowBox.html(snowBoxHtml);
@@ -71,7 +71,10 @@ function snowFlow(snowNum) {
 
 }
 
-snowFlow($(window).width() / 35);
+snowFlow({
+    num: $(window).width() / 35,
+    text: "❄"
+});
 
 </script>
 
